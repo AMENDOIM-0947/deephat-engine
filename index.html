@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>DeepHat Engine Launcher</title>
+</head>
+<body>
+    <script>
+        /* 
+           ESTE É O CÓDIGO QUE VOCÊ VAI COLOCAR NO SEU FAVORITO (BOOKMARKLET)
+           Ele vai carregar o motor completo do seu GitHub.
+        */
+        (function() {
+            const BASE_URL = 'https://SEU-USUARIO.github.io/NOME-DO-REPOSITORIO/'; // MUDE ISSO!
+            
+            const inject = async () => {
+                // 1. Injeta o CSS de Interface
+                const style = document.createElement('link');
+                style.rel = 'stylesheet';
+                style.href = BASE_URL + 'style.css';
+                document.head.appendChild(style);
+
+                // 2. Injeta o Motor de Automação (JS)
+                const script = document.createElement('script');
+                script.src = BASE_URL + 'engine.js';
+                script.crossOrigin = "anonymous";
+                document.body.appendChild(script);
+
+                console.log("%c DeepHat Pro: Engine carregando...", "color: #7c3aed; font-weight: bold;");
+            };
+
+            inject();
+        })();
+    </script>
+</body>
+</html>
